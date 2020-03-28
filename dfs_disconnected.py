@@ -1,61 +1,73 @@
-# Python program to print DFS traversal for complete graph 
-from collections import defaultdict 
+from collections import defaultdict
+#to make a adjacency list
 
-# This class represents a directed graph using adjacency 
-# list representation 
-class Graph: 
+class Graph:
+    def __init__(self):
+        
+        self.graph=defaultdict(list)
 
-	# Constructor 
-	def __init__(self): 
-
-		# default dictionary to store graph 
-		self.graph = defaultdict(list) 
-
-	# function to add an edge to graph 
-	def addEdge(self,u,v): 
-		self.graph[u].append(v) 
-
-	# A function used by DFS 
-	def DFSUtil(self, v, visited): 
-
-		# Mark the current node as visited and print it 
-		visited[v]= True
-		print v, 
-
-		# Recur for all the vertices adjacent to 
-		# this vertex 
-		for i in self.graph[v]: 
-			if visited[i] == False: 
-				self.DFSUtil(i, visited) 
+        #store graph as an adjacency list
 
 
-	# The function to do DFS traversal. It uses 
-	# recursive DFSUtil() 
-	def DFS(self): 
-		V = len(self.graph) #total vertices 
+    def addedge(self,u,v):
 
-		# Mark all the vertices as not visited 
-		visited =[False]*(V) 
+        self.graph[u].append(v)
 
-		# Call the recursive helper function to print 
+        #this add edge to the graph
+
+    
+    def dfsvisited(self,v,visited):
+
+        #mark node as visited and print it
+
+        visited[v]=True
+        print(v)
+
+        # Recur for all the vertices adjacent to 
+        # this vertex
+
+        for i in self.graph[v]: #run for num of vertices
+            if visited[i]==False:
+                self.dfsvisited(i,visited)
+
+
+    def dfs(self):
+        tv=len(self.graph)#total vertices
+
+        #mark all as not visited
+
+        visited=[False]*(tv)
+        
+        # Call the recursive helper function to print 
 		# DFS traversal starting from all vertices one 
 		# by one 
-		for i in range(V): 
-			if visited[i] == False: 
-				self.DFSUtil(i, visited) 
 
+        for i in range(tv):
+            if visited[i]==False:
+                self.dfsvisited(i,visited)
 
-# Driver code 
-# Create a graph given in the above diagram 
-g = Graph() 
-g.addEdge(0, 1) 
-g.addEdge(0, 2) 
-g.addEdge(1, 2) 
-g.addEdge(2, 0) 
-g.addEdge(2, 3) 
-g.addEdge(3, 3) 
+        #if graph is not disconnected we dont need this loop
+        #visited = [False] * (len(self.graph)) 
+		#self.DFSUtil(v, visited) 
 
-print "Following is Depth First Traversal"
-g.DFS() 
+#main
+if __name__ == '__main__': 
+    g=Graph()
+    while(1):
+        print("1.add edge 2.print 3.stop")
+        x=int(input())
+        if x==1:
+            print("Input adge:")
+            a=int(input())
+            b=int(input())
+            g.addEdge(a,b)
 
-# This code is contributed by Neelam Yadav 
+        elif x==2:
+            g.dfs()
+            print("\n")
+
+        elif x==3:
+            break
+
+        else:
+            continue

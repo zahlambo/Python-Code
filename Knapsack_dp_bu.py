@@ -9,11 +9,11 @@ def knapSack(S, w, v, n):
 			if i==0 or S==0: 
 				K[i][S] = 0
 			elif w[i-1] <= S:
-				print("if",K,[i],[S]) 
+				
 				K[i][S] = max(v[i-1] + K[i-1][S-w[i-1]], K[i-1][S]) 
 			else: 
 				K[i][S] = K[i-1][S]
-				print("else",K,[i],[S]) 
+				 
 
 	
 	return K[n][S] 
