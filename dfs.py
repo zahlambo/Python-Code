@@ -25,32 +25,25 @@ class Graph:
 
 		self.DFSUtil(v, visited) 
 
+if __name__ == "__main__":
+	
+	g = Graph() 
 
-g = Graph() 
-g.addEdge(0, 1) 
-g.addEdge(0, 2) 
-g.addEdge(1, 2) 
-g.addEdge(2, 0) 
-g.addEdge(2, 3) 
-g.addEdge(3, 3) 
+	while 1:
+		print("1.add edge 2.print 3.exit\n")
+		n=int(input())
+		if n==1:
+			a,b=input("Input two edge with space\n").split(" ")
+			g.addEdge(a,b)
+		elif n==2:
+			a=int(input("Select an strating point\n"))
 
-print("Following is DFS from (starting from vertex 2)") 
-g.DFS(2) 
+			g.DFS(a)
+		elif n==3:
+			break
+		else:
+			print("try between 1-3 \n")
+			continue
 
-# This code is contributed by Neelam Yadav 
-def dfs(graph, start, visited=None):
-    if visited is None:
-        visited = set()
-    visited.add(start)
-    print(start)
-    for next in graph[start] - visited:
-        dfs(graph, next, visited)
-    return visited
+ 
 
-graph = {'0': set(['1', '2']),
-         '1': set(['0', '3', '4']),
-         '2': set(['0']),
-         '3': set(['1']),
-         '4': set(['2', '3'])}
-
-dfs(graph, '0')
