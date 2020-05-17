@@ -10,20 +10,20 @@ class Graph:
 	def addEdge(self, u, v): 
 		self.graph[u].append(v) 
 
-	def DFSUtil(self, v, visited): 
+	def dfshelper(self, v, visited): 
  
 		visited[v] = True
 		print(v, end = ' ') 
  
 		for i in self.graph[v]: 
 			if visited[i] == False: 
-				self.DFSUtil(i, visited) 
+				self.dfshelper(i, visited) 
  
 	def DFS(self, v): 
 
 		visited = [False] * (len(self.graph)) 
 
-		self.DFSUtil(v, visited) 
+		self.dfshelper(v, visited) 
 
 if __name__ == "__main__":
 	
