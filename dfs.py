@@ -2,7 +2,6 @@
 # tai code e dite hoilo amar .... 
 # amar ase pase ekon smartphone nai je picture tule dibo 
 
-
 from collections import defaultdict 
  
 class Graph: 
@@ -34,7 +33,7 @@ if __name__ == "__main__":
 	g = Graph() 
 
 	while 1:
-		print("1.add edge 2.print 3.exit\n")
+		print("try between 1-3 \n","1.add edge 2.print 3.exit\n")
 		n=int(input())
 		if n==1:
 			a,b=input("Input two edge with space\n").split(" ")
@@ -46,8 +45,4 @@ if __name__ == "__main__":
 		elif n==3:
 			break
 		else:
-			print("try between 1-3 \n")
 			continue
-
- 
-
