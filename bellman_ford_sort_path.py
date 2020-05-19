@@ -51,6 +51,8 @@ class Graph:
 						
 		# print all distance 
 		self.printArr(dist) 
+	def getgraph(self):
+		return self.graph
 
 g = Graph(5) 
 g.addEdge(0, 1, -1) 
@@ -65,4 +67,5 @@ g.addEdge(4, 3, -3)
 # Print the solution 
 g.BellmanFord(0) 
 
+print(g.getgraph())
 # This code is contributed by Neelam Yadav 
