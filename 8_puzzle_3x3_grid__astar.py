@@ -169,7 +169,7 @@ if __name__ == '__main__':
                [0, 4, 6],
                [7, 5, 8]])
 
-    print('total steps : ', len(br) - 1)
+    print('total moves needed : ', len(br) - 1)
     print()
     print(dash + dash + right_junction, "INPUT", left_junction + dash + dash)
     for b in br:
