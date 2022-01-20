@@ -3,7 +3,7 @@ from colorama import Fore, Back, Style
 
 # direction matrix
 DIRECTIONS = {"U": [-1, 0], "D": [1, 0], "L": [0, -1], "R": [0, 1]}
-# target matrix
+
 
 
 # unicode for draw puzzle in command promt or terminal
@@ -165,6 +165,7 @@ def main(puzzle):
 if __name__ == '__main__':
     # it is start matrix
     END = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+    # target matrix
     br = main([[1, 2, 3],
                [0, 4, 6],
                [7, 5, 8]])
